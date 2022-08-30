@@ -8,5 +8,6 @@ advanced computations could also be supported, such as power, root, triangular
 calculations, and so on.
 
 Team member: 
-Yi Chou
-Mingze Hu
+Yi Chou, 
+Mingze Hu, 
+Ricardo Cahue
