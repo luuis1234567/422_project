@@ -11,3 +11,4 @@ Team member:
 Yi Chou, 
 Mingze Hu, 
 Ricardo Cahue
+Luke Martinez
