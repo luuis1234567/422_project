@@ -10,5 +10,6 @@ calculations, and so on.
 Team member: 
 Yi Chou, 
 Mingze Hu, 
-Ricardo Cahue
-Luke Martinez
+Ricardo Cahue,
+Luke Martinez,
+Mohammed
