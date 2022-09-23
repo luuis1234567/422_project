@@ -41,7 +41,7 @@ public class Expression
                         else
                         {
                             // Else get rid of the outer most parentheses and start over
-                            return Compile(s.substring(1, s.length() - 2));
+                            return Compile(s.substring(1, s.length() - 1));
                         }
                     }
                 }
