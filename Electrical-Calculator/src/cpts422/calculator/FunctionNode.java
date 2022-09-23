@@ -1,8 +1,7 @@
 package cpts422.calculator;
 
-
 enum Function {
-	SQRT, LOG, LN, SIN, COS, TAN, FACTORIAL
+	SQRT, LOG, LN, SIN, COS, TAN
 }
 
 public class FunctionNode extends Node
@@ -22,19 +21,17 @@ public class FunctionNode extends Node
 			switch(this.function)
 			{
 				case SQRT:
-					break;
+					return Math.sqrt(this.node.Evaluate());
 				case LOG:
-					break;
+					return Math.log10(this.node.Evaluate());
 				case LN:
-					break;
+					return Math.log(this.node.Evaluate());
 				case SIN:
-					break;
+					return Math.sin(this.node.Evaluate());
 				case COS:
-					break;
+					return Math.cos(this.node.Evaluate());
 				case TAN:
-					break;
-				case FACTORIAL:
-					break;
+					return Math.tan(this.node.Evaluate());
 				default:
 					System.out.format("\nFunction not supported.\n");
 			}

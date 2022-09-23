@@ -13,7 +13,6 @@ public class Main
 			Scanner scanner = new Scanner(System.in);
 			String line = scanner.nextLine();
 			
-			
 			Expression exp = new Expression(line);
 			System.out.println(exp.Evaluate());
 			//scanner.close();
