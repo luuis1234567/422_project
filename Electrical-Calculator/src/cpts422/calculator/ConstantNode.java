@@ -5,6 +5,11 @@ public class ConstantNode extends Node
 	// Properties
 	private double value;
 	
+	public ConstantNode(double _value)
+	{
+		value = _value;
+	}
+	
 	// Override from Node
 	public double Evaluate()
 	{

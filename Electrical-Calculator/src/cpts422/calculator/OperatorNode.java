@@ -21,13 +21,13 @@ public class OperatorNode extends Node
 				case '+': 
 					return this.nodeLeft.Evaluate() + this.nodeRight.Evaluate();
 				case '-': 
-					return this.nodeLeft.Evaluate() + this.nodeRight.Evaluate();
+					return this.nodeLeft.Evaluate() - this.nodeRight.Evaluate();
 				case '*': 
-					return this.nodeLeft.Evaluate() + this.nodeRight.Evaluate();
+					return this.nodeLeft.Evaluate() * this.nodeRight.Evaluate();
 				case '/': 
-					return this.nodeLeft.Evaluate() + this.nodeRight.Evaluate();
+					return this.nodeLeft.Evaluate() / this.nodeRight.Evaluate();
 				case '^':
-					return this.nodeLeft.Evaluate() + this.nodeRight.Evaluate();
+					return Math.pow(this.nodeLeft.Evaluate(), this.nodeRight.Evaluate());
 				default:
 					System.out.format("\nOperator " + this.operator + " not supported.\n");
 			}
