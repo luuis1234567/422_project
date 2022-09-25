@@ -26,3 +26,15 @@
 ### 3.4 Expression
 
 ![img](https://lh5.googleusercontent.com/324kuQnIw4yvScHtrOWiV15mIzs_kUDwNgl5uaa6OJrX5o6c663ctdOvJdZqqDQPBRsyKu6N_XvdAERJ4rm50j2ri2g8ez8N_S8YoBomLqwhnpTHN2jXkJ-bvA3kNpQ5jkpr-mezsDuIKHgBGh2ACN-0u3Mxk8PTo-bRwd96CwwK1VP1QhzZdqvvnA)
+
+## 4. Use Case Diagram
+
+### 4.1 Diagram
+
+![](https://drive.google.com/uc?export=view&id=15pWUwEU6yGOT9OAMMZoh3rg5cvOMNbFi)
+
+### 4.2 Tables
+
+![](https://drive.google.com/uc?export=view&id=15vuE-ZZn7Yc32l9vhzPf1XAfzRJq2Zx7)
+
+![](https://drive.google.com/uc?export=view&id=15wuMtCMF0x3i3MjsAdK3nmOFiUx3Cf3C)
