@@ -1,9 +1,11 @@
 /**
  * 
- * @author lukew
+ */
+/**
+ * @author Mohammed
  *
  */
-
-module cpts422.calculator {
-	
+module ElectricalCalculator {
+	requires java.desktop;
+	requires java.scripting;
 }
