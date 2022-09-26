@@ -10,11 +10,11 @@ You can access our team's working prototype at[ this site](https://github.com/lu
 
 
 
-1. _Team member 1**:**_ _YI Chou_
-2. _Team member 2 Cahue Ricardo_
-3. _Team member 3 Luck Martinez_
-4. _Team member 4 Mingze Hu_
-5. _Team member 5 Mohammed Al Ahbabi_
+1. _Team member 1 *YI Chou*
+2. _Team member 2 *Cahue Ricardo*
+3. _Team member 3 *Luck Martinez*
+4. _Team member 4 *Mingze Hu*
+5. _Team member 5 *Mohammed Al Ahbabi*
 
 
 ## **Members Task**
