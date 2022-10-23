@@ -9,7 +9,7 @@ public class Expression
 		root = Compile(expression);
 	}
 	
-	private static Node Compile(String s)
+	public Node Compile(String s)
 	{
 		if (s.isEmpty() && s.isBlank())
 		{
@@ -70,7 +70,7 @@ public class Expression
         return new ConstantNode(0);
 	}
 	
-	private static Node Compile(String expression, char op)
+	public Node Compile(String expression, char op)
     {
         // track the parentheses
         int parenthesisCounter = 0;
