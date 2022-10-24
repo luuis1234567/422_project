@@ -7,10 +7,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="lib/byte-buddy-1.12.18.jar"/>
-	<classpathentry kind="lib" path="lib/byte-buddy-agent-1.12.18.jar"/>
 	<classpathentry kind="lib" path="lib/objenesis-3.3.jar"/>
-	<classpathentry kind="lib" path="lib/mockito-inline-4.8.1.jar"/>
-	<classpathentry kind="lib" path="lib/mockito-core-4.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/cglib-nodep-3.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/easymock-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/javassist-3.12.1.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/objenesis-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/powermock-api-easymock-1.6.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/jars/powermock-mockito-release-full-1.6.4-full.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Desktop/mockito-all-1.10.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

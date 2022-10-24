@@ -11,7 +11,7 @@ public class Expression
 	
 	public Node Compile(String s)
 	{
-		if (s.isEmpty() && s.isBlank())
+		if (s.isEmpty())
 		{
 			return null;
 		}
