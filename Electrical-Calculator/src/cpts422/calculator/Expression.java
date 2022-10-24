@@ -112,4 +112,9 @@ public class Expression
     {
         return root.Evaluate();
     }
+	
+	public Node GetRoot()
+	{
+		return root;
+	}
 }

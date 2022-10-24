@@ -1,15 +1,21 @@
 package cpts422.calculator;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.mockConstruction;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.mockito.MockedConstruction;
 
 
 class integrateCalculator {
@@ -42,9 +48,7 @@ class integrateCalculator {
 	@Test
 	void IntegrateCalculator() {
 		IntegrateExpression();
-		IntegrateCompileA();
-		IntegrateCompileB();
-		IntegrateOperatorNode();
+		IntegrateCompile();
 		
 		IntegrateExpressionEvaluate();
 		IntegrateNodeEvaluate();
@@ -52,80 +56,52 @@ class integrateCalculator {
 	
 	@Test
 	void IntegrateExpression() {
-		Expression expression = new Expression("1+2");
-		Expression sExpression = spy(expression);
-		
-		OperatorNode root = new OperatorNode('+');
-		root.SetNodeLeft(new ConstantNode(1));
-		root.SetNodeRight(new ConstantNode(2));
-		OperatorNode sRoot = spy (root);
-		
-		when(sExpression.Compile("1+2")).thenReturn(sRoot);
-		
-		double result = DoMain();
-		assertEquals(3, result);
+		try (MockedConstruction<Expression> mock = mockConstruction(Expression.class)) {
+			// Creating a mock instance
+			Expression expression = new Expression("1+2");
+			
+			OperatorNode root = new OperatorNode('+');
+			root.SetNodeLeft(new ConstantNode(1));
+			root.SetNodeRight(new ConstantNode(2));
+			OperatorNode sRoot = spy(root);
+			
+			when(expression.Compile("1+2")).thenReturn(sRoot);
+			
+			expression.Compile("1+2");
+			Expression constructed = mock.constructed().get(0);
+			verify(constructed, atLeast(1)).Compile("1+2");
+		}
 	}
 	
 	@Test
-	void IntegrateCompileA() {
-		Expression expression = new Expression("1+2");
-		Expression sExpression = spy(expression);
-		
-		OperatorNode root = new OperatorNode('+');
-		root.SetNodeLeft(new ConstantNode(1));
-		root.SetNodeRight(new ConstantNode(2));
-		OperatorNode sRoot = spy (root);
-		
-		when(sExpression.Compile("1+2", '+')).thenReturn(sRoot);
-		
-		double result = DoMain();
-		assertEquals(3, result);
-	}
-	
-	@Test
-	void IntegrateCompileB() {
-		double result = DoMain();
-		assertEquals(3, result);
-	}
-	
-	@Test
-	void IntegrateOperatorNode() {
-		
-	}
-	
-	@Test
-	void IntegrateOperatorNodeSetLeft() {
-		
-	}
-	
-	@Test
-	void IntegrateOperatorNodeSetRight() {
-		
+	void IntegrateCompile() {
+		try (MockedConstruction<OperatorNode> mock = mockConstruction(OperatorNode.class)) {
+			Expression expression = new Expression("1+2");
+			
+	        assertEquals(mock.constructed().size(), 1);
+		}
 	}
 	
 	@Test
 	void IntegrateExpressionEvaluate()
 	{
-		OperatorNode root = new OperatorNode('+');
-		root.SetNodeLeft(new ConstantNode(1));
-		root.SetNodeRight(new ConstantNode(2));
+		Expression expression = new Expression("1+2");
 		
-		Node left = root.GetNodeLeft();
-		Node right = root.GetNodeRight();
-		Node sLeft = spy(left);
-		Node sRight = spy(right);
+		Node node = spy(expression.GetRoot());
 		
-		when(sLeft.Evaluate()).thenReturn(1.0);
-		when(sRight.Evaluate()).thenReturn(2.0);
+		when(node.Evaluate()).thenReturn(3.0);
 		
-		double result = DoMain();
-		assertEquals(3, result);
+		double result = expression.Evaluate();
+		
+		assertEquals(result, 3.0);
+		verify(node, atLeast(1)).Evaluate();
 	}
 	
 	@Test
 	void IntegrateNodeEvaluate()
 	{		
-		double result = DoMain();
-		assertEquals(3, result);
+		Expression expression = new Expression("1+2");
+		
+		assertEquals(expression.Evaluate(), 3.0);
 	}
 }
