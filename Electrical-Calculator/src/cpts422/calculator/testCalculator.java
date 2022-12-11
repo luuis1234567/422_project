@@ -2,6 +2,7 @@ package cpts422.calculator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,19 +14,19 @@ class testCalculator {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
-
+	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 	}
-
+	
 	@BeforeEach
 	void setUp() throws Exception {
 	}
-
+	
 	@AfterEach
 	void tearDown() throws Exception {
 	}
-
+	
 	@Test
 	void testPlus() {
 		Expression expression = new Expression("1+2");
@@ -119,113 +120,110 @@ class testCalculator {
 		//assertEquals(9.0, expression.Evaluate());
 		assertEquals(0.0, expression.Evaluate());
 	}
-
 	//The new test case for Milestone3(BlackBox)
-	@Test
-	void newTest(){
-		Expression expression1 = new Expression("10+1");
-		assertEquals(11.0, expression1.Evaluate());
-		Expression expression2 = new Expression("22-3");
-		assertEquals(19.0, expression2.Evaluate());
-		Expression expression3 = new Expression("56*2");
-		assertEquals(112, expression3.Evaluate());
-		Expression expression4 = new Expression("99/33");
-		assertEquals(3.0, expression4.Evaluate());
-		Expression expression5 = new Expression("3^3");
-		assertEquals(27.0, expression5.Evaluate());
-		Expression expression10 = new Expression("2.3/0.7");
-		assertEquals(3.28571428571, expression10.Evaluate());
-		Expression expression14 = new Expression("3+(5-2)");
-		assertEquals("6.0", expression14.Evaluate());
-		Expression expression15 = new Expression("6*(3+3)");
-		assertEquals("36.0", expression15.Evaluate());
-		Expression expression16 = new Expression("2+2^2");
-		assertEquals("6.0", expression16.Evaluate());
-		Expression expression17 = new Expression("2^(2+2)");
-		assertEquals("16.0", expression17.Evaluate());
-		Expression expression21 = new Expression("(0)");
-		assertEquals("0.0", expression21.Evaluate());
-		Expression expression22 = new Expression("(1)+(34)");
-		assertEquals("35.0", expression22.Evaluate());
-		Expression expression24 = new Expression("22^(0)");
-		assertEquals("1", expression24.Evaluate());
-	}
+		@Test
+		void newTest(){
+			Expression expression1 = new Expression("10+1");
+			assertEquals(11.0, expression1.Evaluate());
+			Expression expression2 = new Expression("22-3");
+			assertEquals(19.0, expression2.Evaluate());
+			Expression expression3 = new Expression("56*2");
+			assertEquals(112, expression3.Evaluate());
+			Expression expression4 = new Expression("99/33");
+			assertEquals(3.0, expression4.Evaluate());
+			Expression expression5 = new Expression("3^3");
+			assertEquals(27.0, expression5.Evaluate());
+			Expression expression10 = new Expression("2.3/0.7");
+			assertEquals(3.2857142857142856, expression10.Evaluate());
+			Expression expression14 = new Expression("3+(5-2)");
+			assertEquals(6.0, expression14.Evaluate());
+			Expression expression15 = new Expression("6*(3+3)");
+			assertEquals(36.0, expression15.Evaluate());
+			Expression expression16 = new Expression("2+2^2");
+			assertEquals(6.0, expression16.Evaluate());
+			Expression expression17 = new Expression("2^(2+2)");
+			assertEquals(16.0, expression17.Evaluate());
+			Expression expression21 = new Expression("(0)");
+			assertEquals(0.0, expression21.Evaluate());
+			Expression expression22 = new Expression("(1)+(34)");
+			assertEquals(35.0, expression22.Evaluate());
+			Expression expression24 = new Expression("22^(0)");
+			assertEquals(1, expression24.Evaluate());
+		}
 
-	@Test
-	void testUpBound() {
-		Expression expression6 = new Expression("2^1024+1");
-		assertEquals("Error", expression6.Evaluate());
-	}
+		@Test
+		void testUpBound() {
+			Expression expression6 = new Expression("2^1024+1");
+			assertEquals(Double.POSITIVE_INFINITY, expression6.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testLowBound() {
+			Expression expression6 = new Expression("-2^1024-1");
+			assertEquals(Math.pow(-2, 1024)-1, expression6.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testOutBound() {
+			Expression expression19 = new Expression("2^1024-2^1024");
+			assertEquals(0, expression19.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testInvInput() {
+			Expression expression8 = new Expression("2+n");
+			assertEquals("Error", expression8.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testInvInput2() {
+			Expression expression12 = new Expression("@");
+			assertEquals("Error", expression12.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testInvInput3() {
+			Expression expression13 = new Expression("29^'");
+			assertEquals("Error", expression13.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testInvInput4() {
+			Expression expression20 = new Expression("2+)(3");
+			assertEquals("Error", expression20.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testInvInput5() {
+			Expression expression26 = new Expression("one+two+three");
+			assertEquals("Error", expression26.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testSecZero() {
+			Expression expression18 = new Expression("2/(2-2)");
+			assertEquals("Error", expression18.Evaluate());
+		}
+		//should not be pass
+		@Test
+		void testSecZero2() {
+			Expression expression23 = new Expression("22/(0)");
+			assertEquals("Error", expression23.Evaluate());
+		}
 
-	@Test
-	void testLowBound() {
-		Expression expression6 = new Expression("-2^1024-1");
-		assertEquals("Error", expression6.Evaluate());
-	}
-
-	@Test
-	void testOutBound() {
-		Expression expression19 = new Expression("2^1024-2^1024");
-		assertEquals("Error", expression19.Evaluate());
-	}
-
-	@Test
-	void testInvInput() {
-		Expression expression8 = new Expression("2+n");
-		assertEquals("Error", expression8.Evaluate());
-	}
-
-	@Test
-	void testInvInput2() {
-		Expression expression12 = new Expression("@");
-		assertEquals("Error", expression12.Evaluate());
-	}
-
-	@Test
-	void testInvInput3() {
-		Expression expression13 = new Expression("29^'");
-		assertEquals("Error", expression13.Evaluate());
-	}
-
-	@Test
-	void testInvInput4() {
-		Expression expression20 = new Expression("2+)(3");
-		assertEquals("Error", expression20.Evaluate());
-	}
-
-	@Test
-	void testInvInput5() {
-		Expression expression26 = new Expression("one+two+three");
-		assertEquals("Error", expression26.Evaluate());
-	}
-	
-	@Test
-	void testSecZero() {
-		Expression expression18 = new Expression("2/(2-2)");
-		assertEquals("Error", expression18.Evaluate());
-	}
-
-	@Test
-	void testSecZero2() {
-		Expression expression23 = new Expression("22/(0)");
-		assertEquals("Error", expression23.Evaluate());
-	}
-
-	@Test
-	void testNegNum() {
-		Expression expression11 = new Expression("-4*2");
-		assertEquals("-8.0", expression11.Evaluate());
-	}
-
-	@Test
-	void testSquare() {
-		Expression expression25 = new Expression("2^(-1)");
-		assertEquals("0.5", expression25.Evaluate());
-	}
-
-	@Test
-	void testSquare2() {
-		Expression expression27 = new Expression("-4^2");
-		assertEquals("16.0", expression27.Evaluate());
-	}
+		@Test
+		void testNegNum() {
+			Expression expression11 = new Expression("-4*2");
+			assertEquals(-8.0, expression11.Evaluate());
+		}
+		@Test
+		void testNegSquare() {
+			Expression expression25 = new Expression("2^(-1)");
+			assertEquals(0.5, expression25.Evaluate());
+		}
+		@Test
+		void testNegSquare2() {
+			Expression expression27 = new Expression("-4^2");
+			assertEquals(16.0, expression27.Evaluate());
+		}
 }
