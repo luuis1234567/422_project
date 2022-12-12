@@ -1,6 +1,6 @@
 <link href="C:/Users/ricar/Documents/github/markdown_themes/blueAccent.css" rel="stylesheet"><link>
 
-# Milestone #2 Report
+# Milestone #3 Report
 
 ## Role and Task Assignment
 
@@ -79,7 +79,7 @@ We implemented a blackbox testing strategy using equivalence classes.
    </td>
   </tr>
   <tr>
-   <td>10/18/22
+   <td>12/10/22
    </td>
    <td>30
    </td>
